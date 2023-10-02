@@ -1,0 +1,58 @@
+<div class="container-fluid card">
+  <div class="row card-body">
+    <div class="col-2 img-col">
+      <img
+        class="card-img-top"
+        [src]="individualShoppingItem.image"
+        alt="Card image cap"
+      />
+    </div>
+    <div class="col-10 details-col">
+      <div class="card-body">
+        <div class="view-details">
+          <a href="">
+            {{ individualShoppingItem.title }}
+          </a>
+          <div>
+            <div class="rating">
+              <img
+                class="rating-star"
+                *ngFor="let count of numbersArray; let i = index"
+                src="../../../assets/images/rating/3018558_level_rank_rating_score_standard_icon.png"
+                alt=""
+              />
+              <img
+                class="rating-star"
+                *ngFor="let count of reverseNumbersArray"
+                src="../../../assets/images/rating/5875970_action_favorite_favourite_like_rating_icon.png"
+                alt=""
+              />
+              <span style="margin-left: 5px">{{
+                individualShoppingItem.rating.count
+              }}</span>
+            </div>
+            <p class="price">
+              <span style="vertical-align: super; font-size: smaller">$</span>
+              {{ individualShoppingItem.price }}
+            </p>
+          </div>
+          <p class="description">
+            {{ individualShoppingItem.description }}
+          </p>
+          <p class="description">
+            Category : {{ individualShoppingItem.category }}
+          </p>
+        </div>
+        <div class="right-part">
+          <div class="buttons">
+            <button class="btn btn-outline-primary left-btn">View item</button>
+            <button class="btn btn-outline-success right-btn">
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />

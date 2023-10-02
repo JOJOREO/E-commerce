@@ -1,0 +1,45 @@
+<div class="body-display">
+  <div class="view-style-selector grid-display-container">
+    <button
+      class="btn btn-outline-secondary my-2"
+      (click)="onViewChange('grid')"
+    >
+      <img src="../../assets/images/352413_grid_on_icon.png" />Grid view
+    </button>
+    <button
+      class="btn btn-outline-secondary my-2"
+      (click)="onViewChange('List')"
+    >
+      <img src="../../assets/images/3671904_list_view_icon.png" />List view
+    </button>
+  </div>
+  <div
+    class="container-fluid grid-display-container"
+    *ngIf="gridView == true; else list_view"
+  >
+    <div class="row grid-display">
+      <app-card
+        *ngFor="let shoppingItem of localItemsList"
+        [individualShoppingItem]="shoppingItem"
+      ></app-card>
+    </div>
+  </div>
+  <ng-template #list_view>
+    <div class="container-fluid">
+      <div class="col-12 list-display">
+        <app-list-view-card
+          *ngFor="let shoppingItem of localItemsList"
+          [individualShoppingItem]="shoppingItem"
+        ></app-list-view-card>
+        <!-- <app-list-view-card></app-list-view-card>
+        <app-list-view-card></app-list-view-card>
+        <app-list-view-card></app-list-view-card>
+        <app-list-view-card></app-list-view-card>
+        <app-list-view-card></app-list-view-card>
+        <app-list-view-card></app-list-view-card>
+        <app-list-view-card></app-list-view-card>
+        <app-list-view-card></app-list-view-card> -->
+      </div>
+    </div>
+  </ng-template>
+</div>

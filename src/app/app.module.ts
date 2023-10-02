@@ -3,16 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { CardComponent } from './components/card/card.component';
+import { CardListComponent } from './components/card-list/card-list.component';
+import { ListViewCardComponent } from './components/list-view-card/list-view-card.component';
+import { CommonModule } from '@angular/common';
+import { ShopService } from 'src/services/shop.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ShortenPipe } from './shorten.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    HomePageComponent,
+    CardComponent,
+    CardListComponent,
+    ListViewCardComponent,
+    ShortenPipe,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule, CommonModule, HttpClientModule],
+  providers: [ShopService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

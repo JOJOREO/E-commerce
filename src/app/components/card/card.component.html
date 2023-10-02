@@ -1,0 +1,45 @@
+<div class="col-md-4">
+  <div class="card mb-4 shadow-sm">
+    <img
+      class="card-img-top"
+      [src]="individualShoppingItem.image"
+      alt="Card image cap"
+    />
+    <!-- <hr /> -->
+    <div class="card-body">
+      <hr />
+      <div>
+        <p class="price">
+          <span style="vertical-align: super; font-size: smaller">$</span>
+          {{ individualShoppingItem.price }}
+        </p>
+        <div class="rating">
+          <img
+            class="rating-star"
+            *ngFor="let count of numbersArray; let i = index"
+            src="../../../assets/images/rating/3018558_level_rank_rating_score_standard_icon.png"
+            alt=""
+          />
+          <img
+            class="rating-star"
+            *ngFor="let count of reverseNumbersArray"
+            src="../../../assets/images/rating/5875970_action_favorite_favourite_like_rating_icon.png"
+            alt=""
+          />
+          <span style="margin-left: 5px">{{
+            individualShoppingItem.rating.count
+          }}</span>
+        </div>
+      </div>
+      <p>
+        {{ individualShoppingItem.description | shorten }}
+      </p>
+      <div class="lower-part">
+        <div class="buttons">
+          <button class="btn btn-outline-primary left-btn">View</button>
+          <button class="btn btn-outline-success right-btn">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

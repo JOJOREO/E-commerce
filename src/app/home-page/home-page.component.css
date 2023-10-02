@@ -1,0 +1,57 @@
+/* * {
+  border: 1px solid red;
+} */
+
+.jumbotron {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px;
+
+  background-image: url("../../assets//images/cyber-monday-retail-sales.jpg");
+
+  background-repeat: no-repeat;
+
+  background-size: 110vw;
+  /* background-position: 120px 0; */
+}
+/* .jumbotron p {
+  font-weight: 500;
+} */
+.lead {
+  width: 40vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lead a {
+  margin: 2px;
+}
+footer {
+  padding: 30px;
+}
+footer .container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  /* display: inline; */
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* button > img {
+  width: 20px;
+  margin-right: 10px;
+} */
+
+/* .view-style-selector {
+  margin-left: 5px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+} */
