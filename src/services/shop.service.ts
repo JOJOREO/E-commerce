@@ -6,23 +6,23 @@ import { Injectable } from '@angular/core';
 export class ShopService {
   shoppingItems = [];
   cartItemsCount = 0;
+  singleShoppingItem: any;
   constructor(private _http: HttpClient) {}
   getItems = () => {
-    // let data = await fetch('https://fakestoreapi.com/products');
-    // let response = await data.json();
-
-    // let data = await fetch('https://fakestoreapi.com/products?limit=9');
-    // let response = await data.json();
-    // console.log('response at service', response);
-    // this.shoppingItems = response;
-    // console.log('shopping items at service', this.shoppingItems);
-
     return this._http.get('https://fakestoreapi.com/products?limit=9');
   };
-  getSingleItem = async (itemId: string) => {
-    let data = await fetch('https://fakestoreapi.com/products/' + itemId);
-    let response = await data.json();
-    console.log(response);
+  getSingleItem = (itemId: string) => {
+    return this._http.get('https://fakestoreapi.com/products/' + itemId);
+    // this._http
+    //   .get('https://fakestoreapi.com/products/' + itemId)
+    //   .subscribe((item) => {
+    //     this.singleShoppingItem = item;
+    //     console.log(this.singleShoppingItem);
+    //     console.log(item);
+    //   });
   };
-  addToCart = () => {};
+  addToCart = () => {
+    this.cartItemsCount++;
+    //possible to add items by numerous getSingleItem call
+  };
 }

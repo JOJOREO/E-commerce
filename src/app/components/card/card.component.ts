@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ShopService } from 'src/services/shop.service';
 
 @Component({
@@ -8,33 +9,48 @@ import { ShopService } from 'src/services/shop.service';
 })
 export class CardComponent implements OnInit {
   @Input() individualShoppingItem: any;
-  // category: any;
-  // description: any;
-  // id: any;
-  // image: any;
-  // price: any;
-  // rating: any;
-  // title: any;
+  eyeIconSrc: any = 'assets/images/eye_icons/103796_view_icon_blue.png';
+  cartIconSrc: any =
+    'assets/images/cart_icons/216477_shopping_cart_icon_green.png';
+
   numbersArray: any;
   reverseNumbersArray: any;
-  constructor() {}
+  // constructor() {}
+  constructor(private shopService: ShopService, private router: Router) {}
   ngOnInit(): void {
-    console.log(this.individualShoppingItem);
-
-    // this.category = this.individualShoppingItem.category;
-    // console.log(Math.floor(this.individualShoppingItem.rating.rate));
     this.numbersArray = Array(
       Math.floor(this.individualShoppingItem.rating.rate)
-      // Math.floor(5)
     )
       .fill(0)
       .map((x, i) => i);
+
     //for  empty stars
     this.reverseNumbersArray = Array(
-      // Math.floor(this.individualShoppingItem.rating.rate)
       5 - Math.floor(this.individualShoppingItem.rating.rate)
     )
       .fill(0)
       .map((x, i) => i);
+  }
+
+  getSingleItemLocal(itemId: any) {
+    this.shopService.getSingleItem(itemId);
+  }
+
+  RoutingFunction(itemId: any) {
+    this.router.navigate(['/view-item/' + itemId]);
+  }
+
+  IconChanger(iconName: any) {
+    if (iconName === 'eyeHover') {
+      this.eyeIconSrc = 'assets/images/eye_icons/103796_view_icon_white.png';
+    } else if (iconName === 'eye') {
+      this.eyeIconSrc = 'assets/images/eye_icons/103796_view_icon_blue.png';
+    } else if (iconName === 'cartHover') {
+      this.cartIconSrc =
+        'assets/images/cart_icons/216477_shopping_cart_icon_white.png';
+    } else if (iconName === 'cart') {
+      this.cartIconSrc =
+        'assets/images/cart_icons/216477_shopping_cart_icon_green.png';
+    }
   }
 }

@@ -12,6 +12,9 @@ import { CommonModule } from '@angular/common';
 import { ShopService } from 'src/services/shop.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ShortenPipe } from './shorten.pipe';
+import { ViewItemPageComponent } from './view-item-page/view-item-page.component';
+import { RouterModule } from '@angular/router';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +25,16 @@ import { ShortenPipe } from './shorten.pipe';
     CardListComponent,
     ListViewCardComponent,
     ShortenPipe,
+    ViewItemPageComponent,
+    FooterComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, CommonModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CommonModule,
+    HttpClientModule,
+    RouterModule,
+  ],
   providers: [ShopService],
   bootstrap: [AppComponent],
 })

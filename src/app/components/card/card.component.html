@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md-4 col-sm-6 col-12">
   <div class="card mb-4 shadow-sm">
     <img
       class="card-img-top"
@@ -15,13 +15,13 @@
         </p>
         <div class="rating">
           <img
-            class="rating-star"
+            class="rating-star img-responsive"
             *ngFor="let count of numbersArray; let i = index"
             src="../../../assets/images/rating/3018558_level_rank_rating_score_standard_icon.png"
             alt=""
           />
           <img
-            class="rating-star"
+            class="rating-star img-responsive"
             *ngFor="let count of reverseNumbersArray"
             src="../../../assets/images/rating/5875970_action_favorite_favourite_like_rating_icon.png"
             alt=""
@@ -31,13 +31,29 @@
           }}</span>
         </div>
       </div>
-      <p>
+      <p class="description">
         {{ individualShoppingItem.description | shorten }}
       </p>
       <div class="lower-part">
         <div class="buttons">
-          <button class="btn btn-outline-primary left-btn">View</button>
-          <button class="btn btn-outline-success right-btn">Add to cart</button>
+          <button
+            (click)="RoutingFunction(individualShoppingItem.id)"
+            (mouseover)="IconChanger('eyeHover')"
+            (mouseout)="IconChanger('eye')"
+            class="btn btn-outline-primary left-btn"
+          >
+            <!-- View -->
+            <img class="rating-star" [src]="eyeIconSrc" alt="" />
+          </button>
+          <!-- </a> -->
+          <button
+            (mouseover)="IconChanger('cartHover')"
+            (mouseout)="IconChanger('cart')"
+            class="btn btn-outline-success right-btn"
+          >
+            <!-- Add to cart -->
+            <img class="rating-star" [src]="cartIconSrc" alt="" />
+          </button>
         </div>
       </div>
     </div>

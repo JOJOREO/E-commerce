@@ -1,0 +1,72 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col img-col card">
+      <img
+        class="card-img-top"
+        [src]="displayedItem.image"
+        alt="Card image cap"
+      />
+    </div>
+    <div class="col-10 details-col card">
+      <div class="card-body">
+        <div class="view-details">
+          <a [routerLink]="['/view-item/' + displayedItem.id]">
+            {{ displayedItem.title }}
+          </a>
+          <div>
+            <div class="rating">
+              <img
+                class="rating-star"
+                *ngFor="let count of starsNumbersArray; let i = index"
+                src="../../../assets/images/rating/3018558_level_rank_rating_score_standard_icon.png"
+                alt=""
+              />
+              <img
+                class="rating-star"
+                *ngFor="let count of reverseStarsNumbersArray"
+                src="../../../assets/images/rating/5875970_action_favorite_favourite_like_rating_icon.png"
+                alt=""
+              />
+              <span style="margin-left: 5px">{{
+                displayedItem.rating.count
+              }}</span>
+            </div>
+            <hr />
+            <h4>Item Price :</h4>
+            <p class="price">
+              <span style="vertical-align: super; font-size: smaller">$</span>
+              {{ displayedItem.price }}
+            </p>
+          </div>
+          <h4 class="special-h4">Item Description :</h4>
+          <p class="description">
+            {{ displayedItem.description }}
+          </p>
+          <p class="Category">
+            <strong> Category </strong> : {{ displayedItem.category }}
+          </p>
+
+          <img
+            class="benefits"
+            src="../../assets/images/Screenshot_1.png"
+            alt=""
+          />
+          <hr />
+          <div class="right-part">
+            <div class="buttons">
+              <!-- <button class="btn btn-outline-primary left-btn">View item</button> -->
+              <button
+                (mouseover)="IconChanger('cartHover')"
+                (mouseout)="IconChanger('cart')"
+                class="btn btn-outline-success right-btn"
+              >
+                <!-- Add to cart -->
+                <img class="rating-star" [src]="cartIconSrc" alt="" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
