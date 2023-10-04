@@ -50,4 +50,7 @@ export class ListViewCardComponent {
         'assets/images/cart_icons/216477_shopping_cart_icon_green.png';
     }
   }
+  addToCart = async () => {
+    this.shopService.addToCart();
+  };
 }

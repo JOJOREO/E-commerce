@@ -6,7 +6,7 @@ import { BehaviorSubject, Subject, Subscription } from 'rxjs';
 })
 export class ShopService {
   shoppingItems = [];
-  cartItemsCount = 0;
+  cartItemsCount: any = 0;
   singleShoppingItem: any;
   globalLoadingStatus: any = true;
   // isLoading: Subscription = this.globalLoadingStatus.subscribe((res: any) => {
@@ -15,6 +15,9 @@ export class ShopService {
   // isLoading: Subscription = new Subscription();
 
   isLoading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  isCounting: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    this.cartItemsCount
+  );
 
   constructor(private _http: HttpClient) {
     // this.isLoading.next(true);
@@ -28,8 +31,9 @@ export class ShopService {
   getSingleItem = (itemId: string) => {
     return this._http.get('https://fakestoreapi.com/products/' + itemId);
   };
-  addToCart = () => {
+  addToCart = async () => {
     this.cartItemsCount++;
+    console.log(this.cartItemsCount);
     //possible to add items by numerous getSingleItem call
   };
 }

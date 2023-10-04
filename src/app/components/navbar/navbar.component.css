@@ -15,13 +15,21 @@ nav {
 }
 
 .navbar-collapse {
-  align-items: flex-end;
-  flex-direction: row-reverse;
-  /* display: flex; */
-  /* border: 1px solid green; */
-  /* justify-content: space-between; */
-  /* width: fit-content !important; */
+  /* align-items: flex-end; */
+  justify-content: end;
+  /* border: 1px solid red;/ */
+  /* width: 100%; */
+  /* padding: 0 !important; */
+  /* flex-direction: row-reverse; */
+}
+.navbar-collapse > * {
+  /* border: 1px solid red; */
+  /* margin: 0; */
 }
 .navbar-nav {
   margin-right: 25px;
+}
+button {
+  display: flex;
+  flex-direction: row;
 }

@@ -53,4 +53,9 @@ export class CardComponent implements OnInit {
         'assets/images/cart_icons/216477_shopping_cart_icon_green.png';
     }
   }
+  addToCart = async () => {
+    this.shopService.addToCart();
+    // console.log(this.shopService.cartItemsCount);
+    alert('item added ' + this.shopService.cartItemsCount);
+  };
 }

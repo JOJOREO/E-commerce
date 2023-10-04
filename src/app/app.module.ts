@@ -16,6 +16,7 @@ import { ViewItemPageComponent } from './view-item-page/view-item-page.component
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoadingPageComponent } from './loading-page/loading-page.component';
+import { LoginService } from 'src/services/login.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { LoadingPageComponent } from './loading-page/loading-page.component';
     HttpClientModule,
     RouterModule,
   ],
-  providers: [ShopService],
+  providers: [ShopService, LoginService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
