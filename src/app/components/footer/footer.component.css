@@ -1,10 +1,16 @@
 footer {
   padding: 30px;
-  /* height: 100px; */
-  height: 15vh;
-  max-height: 15vh;
-  /* max-height: 100px; */
+
+  /* margin: 0; */
+
+  /* height: 15vh;
+  max-height: 5vh; */
+  /* height: 100% !important; */
+  /* max-height: 30px !important; */
+  /* height: fit-content; */
   /* border: 1px solid red; */
+  border-top: 1px solid #6c757d33;
+  overflow: hidden;
 }
 footer .container {
   display: flex;

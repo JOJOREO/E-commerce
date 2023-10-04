@@ -1,6 +1,9 @@
 /* * {
   border: 1px solid red;
 } */
+:host {
+  height: 100%;
+}
 
 .jumbotron {
   display: flex;

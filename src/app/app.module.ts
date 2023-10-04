@@ -15,6 +15,7 @@ import { ShortenPipe } from './shorten.pipe';
 import { ViewItemPageComponent } from './view-item-page/view-item-page.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
+import { LoadingPageComponent } from './loading-page/loading-page.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ShortenPipe,
     ViewItemPageComponent,
     FooterComponent,
+    LoadingPageComponent,
   ],
   imports: [
     BrowserModule,

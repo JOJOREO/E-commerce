@@ -15,10 +15,13 @@ export class CardListComponent implements OnInit {
     this.shopService.getItems().subscribe((res) => {
       this.localItemsList = res;
       console.log(this.localItemsList);
+      this.shopService.isLoading.next(false);
+      // this.shopService.globalLoadingStatus = false;
+      // console.log(this.shopService.globalLoadingStatus);
     });
   }
 
-  //func to change view grid/list with default value of parameter as grid+ default value of view variable as true
+  //function to change view grid/list with default value of parameter as grid+ default value of view variable as true
   onViewChange(viewType: string = 'grid') {
     if (viewType === 'grid') {
       this.gridView = true;

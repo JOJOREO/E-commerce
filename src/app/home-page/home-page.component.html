@@ -14,7 +14,7 @@
     site.
   </p>
 </div>
-<div class="display-selector"></div>
+<!-- <div class="display-selector"></div> -->
 <!-- <app-card></app-card> -->
 <!-- <div class="view-style-selector">
   <button class="btn btn-outline-secondary my-2">
@@ -24,7 +24,18 @@
     <img src="../../assets/images/3671904_list_view_icon.png" />List view
   </button>
 </div> -->
-<app-card-list></app-card-list>
+
+<div *ngIf="isLoadingBool; else loadedPage">
+  <app-loading-page></app-loading-page>
+</div>
+
+<ng-template #loadedPage>
+  <app-card-list></app-card-list>
+</ng-template>
+
+<!-- <app-card-list></app-card-list> -->
+<!-- <app-loading-page *ngIf="loadingStatus"></app-loading-page> -->
+
 <!-- <footer class="text-muted">
   <div class="container">
     <p class="float-right">
