@@ -51,6 +51,8 @@ export class ListViewCardComponent {
     }
   }
   addToCart = async () => {
-    this.shopService.addToCart();
+    this.shopService.isCounting.next(++this.shopService.cartItemsCount);
+
+    alert('item added to Cart !! ');
   };
 }

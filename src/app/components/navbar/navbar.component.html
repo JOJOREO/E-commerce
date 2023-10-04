@@ -19,7 +19,9 @@
           src="../../../assets/images/216477_shopping_cart_icon (1).png"
           alt=""
         />
-        <div style="font-size: small">{{ cartItemsCount }}</div>
+        <div class="cart-counter bg-danger">
+          {{ cartItemsCount }}
+        </div>
       </button>
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
@@ -49,15 +51,28 @@
                 <a class="dropdown-item" href="#">Profile</a>
               </button>
             </li>
-            <li>
+            <li style="display: flex; flex-direction: row">
               <button class="btn">
                 <img
                   class="dropdown-icons"
                   src="../../../assets/images/216477_shopping_cart_icon (1).png"
                   alt=""
                 />
-                <div style="font-size: small">{{ cartItemsCount }}</div>
-                <a class="dropdown-item" href="#">Cart</a>
+                <!-- <div style="font-size: small">{{ cartItemsCount }}</div> -->
+                <div
+                  class="cart-counter bg-danger"
+                  style="
+                    width: 30px;
+                    margin: 0;
+                    border: 1px solid red;
+                    font-size: xx-small;
+                  "
+                >
+                  {{ cartItemsCount }}
+                </div>
+                <a class="dropdown-item" href="#" style="padding-left: 0"
+                  >Cart</a
+                >
               </button>
             </li>
             <li *ngIf="!loggedIn; else logOutLi">

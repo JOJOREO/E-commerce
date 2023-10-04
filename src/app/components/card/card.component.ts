@@ -54,8 +54,8 @@ export class CardComponent implements OnInit {
     }
   }
   addToCart = async () => {
-    this.shopService.addToCart();
-    // console.log(this.shopService.cartItemsCount);
-    alert('item added ' + this.shopService.cartItemsCount);
+    this.shopService.isCounting.next(++this.shopService.cartItemsCount);
+
+    alert('item added to Cart !! ');
   };
 }

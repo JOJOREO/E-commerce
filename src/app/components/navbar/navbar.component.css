@@ -26,6 +26,15 @@ nav {
   /* border: 1px solid red; */
   /* margin: 0; */
 }
+
+.cart-counter {
+  vertical-align: super;
+  width: 20px;
+  font-size: smaller;
+  border-radius: 50%;
+  color: white;
+}
+
 .navbar-nav {
   margin-right: 25px;
 }

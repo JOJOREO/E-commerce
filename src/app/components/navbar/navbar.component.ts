@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
     private loginService: LoginService,
     private shopService: ShopService
   ) {
-    this.isCounting = this.shopService.isCounting;
+    // this.isCounting = this.shopService.isCounting;
     this.shopService.isCounting.subscribe((res) => {
       this.cartItemsCount = res;
       console.log(this.cartItemsCount);
@@ -75,6 +75,11 @@ export class NavbarComponent implements OnInit {
 
     this.loginService.Login();
 
+    // this.isCounting = this.shopService.isCounting;
+    this.shopService.isCounting.subscribe((res) => {
+      this.cartItemsCount = res;
+      console.log(this.cartItemsCount);
+    });
     // this.cartItemsCount = this.shopService.cartItemsCount;
     // this.cartItemsCount = this.shopService.cartItemsCount;
 
