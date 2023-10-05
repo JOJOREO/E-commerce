@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoadingPageComponent } from './loading-page/loading-page.component';
 import { LoginService } from 'src/services/login.service';
+import { DropDownCardComponent } from './components/drop-down-card/drop-down-card.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { LoginService } from 'src/services/login.service';
     ViewItemPageComponent,
     FooterComponent,
     LoadingPageComponent,
+    DropDownCardComponent,
   ],
   imports: [
     BrowserModule,

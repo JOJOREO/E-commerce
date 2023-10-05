@@ -17,6 +17,8 @@ export class NavbarComponent implements OnInit {
   cartItemsCount: any;
   isCounting: Observable<boolean> | undefined;
 
+  localCartItemsList: any;
+  checkoutTotal: any;
   constructor(
     private loginService: LoginService,
     private shopService: ShopService
@@ -68,55 +70,48 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.username = this.loginService.username;
-    // this.userImage = this.loginService.userImage;
-    // this.login();
-    // localStorage.clear();
-
     this.loginService.Login();
 
-    // this.isCounting = this.shopService.isCounting;
     this.shopService.isCounting.subscribe((res) => {
       this.cartItemsCount = res;
       console.log(this.cartItemsCount);
     });
-    // this.cartItemsCount = this.shopService.cartItemsCount;
-    // this.cartItemsCount = this.shopService.cartItemsCount;
-
-    // console.log(this.loggedIn);
-    // console.log(localStorage.getItem('currentUser'));
-    // console.log(this.storedUser);
-    // console.log(this.loginService.username);
-    // console.log(this.loginService.userImage);
-
-    // console.log(JSON.stringify(this.storedUser) !== '{}');
-    // if (JSON.stringify(this.storedUser) == '{}') {
 
     if (localStorage.getItem('Token')) {
-      // this.cartItemsCount = this.shopService.cartItemsCount;
-      console.log(localStorage.getItem('currentUser'));
+      // console.log(localStorage.getItem('currentUser'));
       this.storedUser = localStorage.getItem('currentUser');
-      console.log(this.storedUser);
+      // console.log(this.storedUser);
       const splittedUserName = this.storedUser
         .split('firstName')[1]
         .split(',')[0]
         .split(':')[1]
         .replace(/"|'/g, '');
-      console.log(splittedUserName);
+      // console.log(splittedUserName);
       const splittedUserImage = this.storedUser
         .split('image')[1]
         .split(',')[0]
         .replace(/"|'/g, '')
         .slice(1);
-      // splittedUserImage[0] = '';
-      // splittedUserImage[0] = splittedUserImage.replace(/"|'/g, '');
-      console.log(splittedUserImage);
-
-      // console.log(this.storedUser);
+      // console.log(splittedUserImage);
       this.username = splittedUserName;
       this.userImage = splittedUserImage;
       this.loggedIn = true;
       //  token = storedUser.token;
     }
+
+    //cart fetch
+
+    this.shopService.getCartItems().subscribe((res) => {
+      this.localCartItemsList = res.products;
+      console.log(this.localCartItemsList);
+      // this.shopService.isLoading.next(false);
+    });
+
+    this.shopService.isAdding.subscribe((res) => {
+      console.log(res);
+      this.checkoutTotal = res;
+    });
   }
+
+  // gridView = true;
 }

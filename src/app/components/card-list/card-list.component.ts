@@ -16,8 +16,6 @@ export class CardListComponent implements OnInit {
       this.localItemsList = res;
       console.log(this.localItemsList);
       this.shopService.isLoading.next(false);
-      // this.shopService.globalLoadingStatus = false;
-      // console.log(this.shopService.globalLoadingStatus);
     });
   }
 
