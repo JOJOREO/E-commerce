@@ -1,4 +1,5 @@
 <div class="col-md-4 col-sm-6 col-12">
+  <!-- <div class="card mb-4 shadow-sm" (click)="onCardClick()"> -->
   <div class="card mb-4 shadow-sm">
     <img
       class="card-img-top"
@@ -8,6 +9,15 @@
     <!-- <hr /> -->
     <div class="card-body">
       <hr />
+      <!-- <a>
+        {{ individualShoppingItem.title.substr(0, 55) + "..." }}
+      </a> -->
+      <a
+        [routerLink]="['/view-item/' + individualShoppingItem.id]"
+        style="text-align: center; text-decoration: none"
+      >
+        {{ individualShoppingItem.title.substr(0, 60) + "..." }}
+      </a>
       <div>
         <p class="price">
           <span style="vertical-align: super; font-size: smaller">$</span>

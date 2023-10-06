@@ -6,7 +6,7 @@ import { BehaviorSubject, Subject, Subscription } from 'rxjs';
 })
 export class ShopService {
   shoppingItemsPrices = [];
-  cartItemsCount: any = 2;
+  cartItemsCount: any = 0;
   singleShoppingItem: any;
   globalLoadingStatus: any = true;
 
@@ -34,6 +34,12 @@ export class ShopService {
     return this._http.get('https://fakestoreapi.com/products/' + itemId);
   };
 
+  getItemsWithCategory = (filterCategory: any) => {
+    return this._http.get(
+      'https://fakestoreapi.com/products/category/' + filterCategory
+    );
+  };
+
   addToTotal = (amount: any) => {
     console.log(this.checkoutTotal);
     console.log(amount);
@@ -51,10 +57,4 @@ export class ShopService {
     this.isAdding.next(total);
     // console.log(this.checkoutTotal);
   };
-
-  // addToCart = async () => {
-  //   this.cartItemsCount++;
-  //   console.log(this.cartItemsCount);
-  //   //possible to add items by numerous getSingleItem call
-  // };
 }

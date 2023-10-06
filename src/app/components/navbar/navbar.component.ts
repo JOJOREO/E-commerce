@@ -56,6 +56,11 @@ export class NavbarComponent implements OnInit {
       'currentUser',
       JSON.stringify({ currentUser: this.storedUser })
     );
+
+    this.loginService.usernameMonitoring.next(this.username);
+    this.shopService.isCounting.next(2);
+    this.shopService.cartItemsCount = 2;
+    // this.shopService.isCounting.next(++this.shopService.cartItemsCount);
   }
 
   logOut() {
@@ -64,6 +69,8 @@ export class NavbarComponent implements OnInit {
     this.userImage =
       'assets/images/403022_business man_male_user_avatar_profile_icon.png';
     localStorage.clear();
+    this.shopService.isCounting.next(0);
+    // this.loginService.usernameMonitoring.next('');
     // this.loginService.Login();
     // this.username = this.loginService.username;
     // this.userImage = this.loginService.userImage;
@@ -96,6 +103,14 @@ export class NavbarComponent implements OnInit {
       this.username = splittedUserName;
       this.userImage = splittedUserImage;
       this.loggedIn = true;
+
+      this.shopService.isCounting.next(2);
+      this.shopService.cartItemsCount = 2;
+      this.loginService.usernameMonitoring.next(splittedUserName);
+      this.loginService.userImageMonitoring.next(splittedUserImage);
+
+      // this.loginService.usernameMonitoring.next(splittedUserName);
+      // this.loginService.userImageMonitoring.next(splittedUserImage)
       //  token = storedUser.token;
     }
 

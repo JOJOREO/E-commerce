@@ -18,8 +18,11 @@
   max-width: 30vw;
   /* height: 55vh; */
   height: auto;
-  max-height: 55vh;
+  max-height: 60vh;
   align-items: center;
+}
+.card:hover {
+  cursor: pointer;
 }
 .card-body {
   height: max-content;

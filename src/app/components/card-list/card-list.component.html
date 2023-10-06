@@ -1,5 +1,24 @@
 <div class="body-display">
+  <div>
+    <!-- <input
+      type="text"
+      class="form-control search-bar"
+      style="width: 50%"
+      (input)="onInputChange($event)"
+    /> -->
+  </div>
   <div class="view-style-selector grid-display-container">
+    <input
+      type="text"
+      class="form-control search-bar"
+      style="width: 50%"
+      (input)="onInputChange($event)"
+    />
+    <img
+      class="search-bar-img"
+      src="../../../assets/images/211818_search_icon.png"
+    />
+
     <button
       class="btn btn-outline-secondary my-2"
       (click)="onViewChange('grid')"

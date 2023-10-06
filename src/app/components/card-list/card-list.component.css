@@ -34,6 +34,12 @@ button > img {
   width: 20px;
   margin-right: 10px;
 }
+.search-bar-img {
+  width: 20px;
+  margin-right: 10px;
+  position: relative;
+  right: 35px;
+}
 
 .view-style-selector {
   background-color: #6c757d33;
@@ -45,5 +51,19 @@ button > img {
   flex-direction: row;
   gap: 5px;
 }
+.search-Bar {
+  width: 100%;
+}
+.search-Bar > input {
+  width: 100%;
+}
+.search-Bar > img {
+  width: 0;
+  position: absolute;
+}
+/* .form-control {
+  background-image: url("https://res.cloudinary.com/dt9b7pad3/image/upload/v1502810110/angle-down-dark_dkyopo.png");
+  background-position: right center 5px;
+} */
 /* .body-display {
 } */

@@ -1,15 +1,26 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs';
+import { BehaviorSubject, tap } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
   constructor(private _http: HttpClient) {}
-  userObject: any;
+  userObject: any = {};
   username: any = 'Guest';
   userImage: any =
     'assets/images/403022_business man_male_user_avatar_profile_icon.png';
+
+  userObjectMonitoring: BehaviorSubject<{}> = new BehaviorSubject<{}>(
+    this.userObject
+  );
+  usernameMonitoring: BehaviorSubject<string> = new BehaviorSubject<string>(
+    this.username
+  );
+  userImageMonitoring: BehaviorSubject<string> = new BehaviorSubject<string>(
+    this.userImage
+  );
+
   Login = () => {
     this._http
       .post<any>('https://dummyjson.com/auth/login', {
@@ -26,6 +37,12 @@ export class LoginService {
         console.log(this.userObject);
         console.log(this.username);
         console.log(this.userImage);
+
+        //possible fix
+
+        // this.userObjectMonitoring.next(responseData);
+        // this.usernameMonitoring.next(responseData.firstName);
+        // this.userImageMonitoring.next(responseData.image);
 
         // localStorage.setItem(
         //   'Token',

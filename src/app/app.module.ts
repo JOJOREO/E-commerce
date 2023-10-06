@@ -18,6 +18,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoadingPageComponent } from './loading-page/loading-page.component';
 import { LoginService } from 'src/services/login.service';
 import { DropDownCardComponent } from './components/drop-down-card/drop-down-card.component';
+import { FormsModule } from '@angular/forms';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -39,6 +44,13 @@ import { DropDownCardComponent } from './components/drop-down-card/drop-down-car
     CommonModule,
     HttpClientModule,
     RouterModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      positionClass: 'toast-bottom-right',
+      // preventDuplicates: true,
+    }),
   ],
   providers: [ShopService, LoginService],
   bootstrap: [AppComponent],

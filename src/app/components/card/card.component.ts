@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ShopService } from 'src/services/shop.service';
-
+import { ToastrService } from 'ngx-toastr';
+import { LoginService } from 'src/services/login.service';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -16,7 +17,12 @@ export class CardComponent implements OnInit {
   numbersArray: any;
   reverseNumbersArray: any;
   // constructor() {}
-  constructor(private shopService: ShopService, private router: Router) {}
+  constructor(
+    private shopService: ShopService,
+    private loginService: LoginService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
   ngOnInit(): void {
     this.numbersArray = Array(
       Math.floor(this.individualShoppingItem.rating.rate)
@@ -54,8 +60,21 @@ export class CardComponent implements OnInit {
     }
   }
   addToCart = async () => {
-    this.shopService.isCounting.next(++this.shopService.cartItemsCount);
+    this.loginService.usernameMonitoring.subscribe((usernameResult) => {
+      console.log(usernameResult);
 
-    alert('item added to Cart !! ');
+      if (usernameResult != 'Guest') {
+        this.shopService.isCounting.next(++this.shopService.cartItemsCount);
+        // alert('item added to Cart !! ');
+        this.toastr.success('Added to Cart successfully !!', 'Item Added');
+      }
+    });
+    // this.shopService.isCounting.next(++this.shopService.cartItemsCount);
+    // // alert('item added to Cart !! ');
+    // this.toastr.success('item added to Cart successfully !!', 'Item Added');
+  };
+
+  onCardClick = () => {
+    this.router.navigate(['/view-item/' + this.individualShoppingItem.id]);
   };
 }

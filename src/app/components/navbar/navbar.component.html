@@ -44,13 +44,20 @@
                 src="../../../assets/images/216477_shopping_cart_icon (1).png"
                 alt=""
               />
-              <div class="cart-counter bg-danger">
+              <div
+                class="cart-counter bg-danger"
+                [ngStyle]="{ display: !loggedIn ? 'none' : '' }"
+              >
                 {{ cartItemsCount }}
               </div>
             </button>
             <!-- {{ username }} -->
           </a>
-          <ul class="dropdown-menu" style="width: 300px">
+          <ul
+            class="dropdown-menu"
+            style="width: 300px"
+            [ngStyle]="{ display: !loggedIn ? 'none' : '' }"
+          >
             <li *ngFor="let shoppingItem of localCartItemsList">
               <!-- <a class="dropdown-item" href="#"></a> -->
               <app-drop-down-card

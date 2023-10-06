@@ -123,6 +123,12 @@ export class DropDownCardComponent implements OnInit {
   deleteCartItem = () => {
     this.clicked = true;
     this.subtractItemCost(this.cartItemCost);
+    this.shopService.isCounting.subscribe((res) => {
+      console.log(res);
+    });
+
+    // --this.shopService.cartItemsCount;
+    this.shopService.isCounting.next(--this.shopService.cartItemsCount);
   };
 
   // addToCart = async () => {
