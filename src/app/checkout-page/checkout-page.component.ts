@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject } from 'rxjs';
 import { ShopService } from 'src/services/shop.service';
 
@@ -15,7 +17,11 @@ export class CheckoutPageComponent implements OnInit {
   localItemsList: any;
   local_Objects_ItemsList: any;
   checkoutTotal: any;
-  constructor(private shopService: ShopService) {}
+  constructor(
+    private shopService: ShopService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   isMonitoringAddress: BehaviorSubject<string> = new BehaviorSubject<string>(
     this.address
@@ -37,14 +43,14 @@ export class CheckoutPageComponent implements OnInit {
 
       this.isMonitoringAddress.next(result.phone);
 
-      console.log(this.address);
-      console.log(this.email);
-      console.log(this.phone);
+      // console.log(this.address);
+      // console.log(this.email);
+      // console.log(this.phone);
     });
 
-    console.log(this.address);
-    console.log(this.email);
-    console.log(this.phone);
+    // console.log(this.address);
+    // console.log(this.email);
+    // console.log(this.phone);
 
     //
 
@@ -72,9 +78,20 @@ export class CheckoutPageComponent implements OnInit {
       });
       // this.shopService.isLoading.next(false);
     });
-    console.log(this.local_Objects_ItemsList);
+    // console.log(this.local_Objects_ItemsList);
 
     //
   }
-  onSubmit = (form: NgForm) => {};
+  onSubmit = (form: NgForm) => {
+    this.toastr.success(
+      'Items on delivery successfully !!',
+      'Purchase Successful'
+    );
+    this.shopService.isMonitoringCart.next([]);
+    this.shopService.isCounting.next(0);
+    this.shopService.isAdding.next(0);
+    this.router.navigate(['']);
+    // alert('done');
+  };
+  purchaseDone = () => {};
 }

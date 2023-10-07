@@ -47,6 +47,7 @@
               <div
                 class="cart-counter bg-danger"
                 [ngStyle]="{ display: !loggedIn ? 'none' : '' }"
+                [ngStyle]="{ display: disableCart ? 'none' : '' }"
               >
                 {{ cartItemsCount }}
               </div>
@@ -57,6 +58,7 @@
             class="dropdown-menu"
             style="width: 300px"
             [ngStyle]="{ display: !loggedIn ? 'none' : '' }"
+            [ngStyle]="{ display: disableCart ? 'none' : '' }"
           >
             <li *ngFor="let shoppingItem of localCartItemsList">
               <!-- <a class="dropdown-item" href="#"></a> -->

@@ -11,6 +11,7 @@ export class ShopService {
   globalLoadingStatus: any = true;
 
   checkoutTotal: any = 0;
+  cart: any = [];
 
   isLoading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   isCounting: BehaviorSubject<number> = new BehaviorSubject<number>(
@@ -22,6 +23,7 @@ export class ShopService {
   isMonitoring: BehaviorSubject<number[]> = new BehaviorSubject<number[]>(
     this.shoppingItemsPrices
   );
+  isMonitoringCart: BehaviorSubject<any> = new BehaviorSubject<any>(this.cart);
 
   constructor(private _http: HttpClient) {}
   getItems = () => {

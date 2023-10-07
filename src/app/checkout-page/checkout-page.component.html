@@ -49,11 +49,17 @@
           *ngFor="let shoppingItem of localItemsList"
           [individualShoppingItem]="shoppingItem"
         ></app-drop-down-card>
-        <h2>
+        <h3>
           Total cost :
           <span style="vertical-align: super; font-size: smaller">$</span>
           {{ checkoutTotal }}
-        </h2>
+        </h3>
+      </div>
+      <hr />
+      <div class="confirm-btn">
+        <button class="btn btn-warning" type="submit" (click)="purchaseDone()">
+          Confirm Purchase
+        </button>
       </div>
     </form>
   </div>

@@ -42,3 +42,8 @@
   gap: 5px;
   margin: 5px;
 }
+.confirm-btn {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+}

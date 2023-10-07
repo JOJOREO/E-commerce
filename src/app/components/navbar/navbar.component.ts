@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
   userImage: any = this.loginService.userImage;
 
   cartItemsCount: any;
+  disableCart: any = false;
   isCounting: Observable<boolean> | undefined;
 
   localCartItemsList: any;
@@ -117,14 +118,35 @@ export class NavbarComponent implements OnInit {
     //cart fetch
 
     this.shopService.getCartItems().subscribe((res) => {
-      this.localCartItemsList = res.products;
+      // this.localCartItemsList = res.products;
+      this.shopService.isMonitoringCart.next(res.products);
       console.log(this.localCartItemsList);
       // this.shopService.isLoading.next(false);
+    });
+
+    this.shopService.isMonitoringCart.subscribe((res) => {
+      console.log(res);
+      this.localCartItemsList = res;
     });
 
     this.shopService.isAdding.subscribe((res) => {
       console.log(res);
       this.checkoutTotal = res;
+    });
+
+    this.shopService.isCounting.subscribe((res) => {
+      if (this.cartItemsCount == 0) {
+        console.log(this.cartItemsCount);
+        this.disableCart = true;
+      } else {
+        this.disableCart = false;
+        this.shopService.getCartItems().subscribe((res) => {
+          // this.localCartItemsList = res.products;
+          this.shopService.isMonitoringCart.next(res.products);
+          console.log(this.localCartItemsList);
+          // this.shopService.isLoading.next(false);
+        });
+      }
     });
   }
 
