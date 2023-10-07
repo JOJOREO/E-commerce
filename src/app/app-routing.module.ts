@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ViewItemPageComponent } from './view-item-page/view-item-page.component';
+import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'view-item/:id', component: ViewItemPageComponent },
+  { path: 'checkout/:total/:numberOfItems', component: CheckoutPageComponent },
   // { path: 'view-item', component: ViewItemPageComponent },
 ];
 

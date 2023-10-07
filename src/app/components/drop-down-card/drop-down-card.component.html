@@ -6,7 +6,7 @@
       <hr />
       <div>
         <h6>
-          {{ itemDetails.title }}
+          {{ itemDetails.title.substr(0, 30) + "..." }}
         </h6>
         <p class="price">
           <span style="vertical-align: super; font-size: smaller">$</span>
@@ -55,6 +55,7 @@
           </button> -->
           <!-- </a> -->
           <button
+            type="button"
             (mouseover)="IconChanger('deleteHover')"
             (mouseout)="IconChanger('delete')"
             (click)="deleteCartItem()"

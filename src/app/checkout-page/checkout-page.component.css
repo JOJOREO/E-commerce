@@ -1,0 +1,44 @@
+/* * {
+  border: 1px solid red;
+} */
+
+.container {
+  border-radius: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 15px;
+  /* height: 90%; */
+  background-color: #6c757d33;
+}
+
+.card {
+  margin: 5px;
+  padding: 15px;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  /* display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center; */
+  /* overflow-y: hidden; */
+  /* border: 1px solid red; */
+}
+.card > * {
+  width: 40%;
+  /* color: black; */
+  /* min-height: 500px;
+  max-height: 500px;
+  height: 500px; */
+  /* height: auto; */
+  /* border: 1px solid red; */
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 5px;
+}

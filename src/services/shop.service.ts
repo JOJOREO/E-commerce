@@ -40,6 +40,10 @@ export class ShopService {
     );
   };
 
+  getUserCheckoutDetails = () => {
+    return this._http.get<any>('https://fakestoreapi.com/users/1');
+  };
+
   addToTotal = (amount: any) => {
     console.log(this.checkoutTotal);
     console.log(amount);

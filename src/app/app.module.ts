@@ -23,6 +23,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ToastrModule } from 'ngx-toastr';
     FooterComponent,
     LoadingPageComponent,
     DropDownCardComponent,
+    CheckoutPageComponent,
   ],
   imports: [
     BrowserModule,
