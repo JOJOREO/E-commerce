@@ -113,6 +113,11 @@ p {
 .Category {
   font-size: medium;
 }
+nav {
+  /* background-color: #6c757d33; */
+  /* float: right; */
+  /* margin-right: 30px; */
+}
 /* * {
   border: 1px solid red;
 } */

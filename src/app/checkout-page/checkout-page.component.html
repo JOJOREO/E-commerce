@@ -57,7 +57,12 @@
       </div>
       <hr />
       <div class="confirm-btn">
-        <button class="btn btn-warning" type="submit" (click)="purchaseDone()">
+        <button
+          class="btn btn-warning"
+          type="submit"
+          (click)="purchaseDone()"
+          [disabled]="disablePurchase"
+        >
           Confirm Purchase
         </button>
       </div>

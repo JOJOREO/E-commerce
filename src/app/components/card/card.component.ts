@@ -42,8 +42,9 @@ export class CardComponent implements OnInit {
     this.shopService.getSingleItem(itemId);
   }
 
-  RoutingFunction(itemId: any) {
+  RoutingFunction(itemId: any, event: any) {
     this.router.navigate(['/view-item/' + itemId]);
+    event.stopPropagation();
   }
 
   IconChanger(iconName: any) {
@@ -59,7 +60,7 @@ export class CardComponent implements OnInit {
         'assets/images/cart_icons/216477_shopping_cart_icon_green.png';
     }
   }
-  addToCart = async () => {
+  addToCart = async (event: any) => {
     this.loginService.usernameMonitoring.subscribe((usernameResult) => {
       console.log(usernameResult);
 
@@ -69,6 +70,7 @@ export class CardComponent implements OnInit {
         this.toastr.success('Added to Cart successfully !!', 'Item Added');
       }
     });
+    event.stopPropagation();
     // this.shopService.isCounting.next(++this.shopService.cartItemsCount);
     // // alert('item added to Cart !! ');
     // this.toastr.success('item added to Cart successfully !!', 'Item Added');

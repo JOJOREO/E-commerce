@@ -17,6 +17,7 @@ export class CheckoutPageComponent implements OnInit {
   localItemsList: any;
   local_Objects_ItemsList: any;
   checkoutTotal: any;
+  disablePurchase: any = false;
   constructor(
     private shopService: ShopService,
     private router: Router,
@@ -27,8 +28,15 @@ export class CheckoutPageComponent implements OnInit {
     this.address
   );
   ngOnInit(): void {
+    if (this.checkoutTotal === 0) {
+      this.disablePurchase = true;
+    }
+
     this.shopService.isAdding.subscribe((result) => {
       this.checkoutTotal = result;
+      if (this.checkoutTotal === 0) {
+        this.disablePurchase = true;
+      }
     });
     this.shopService.getUserCheckoutDetails().subscribe((result) => {
       console.log(result);

@@ -1,6 +1,6 @@
 <div class="col-md-4 col-sm-6 col-12">
-  <!-- <div class="card mb-4 shadow-sm" (click)="onCardClick()"> -->
-  <div class="card mb-4 shadow-sm">
+  <div class="card mb-4 shadow-sm" (click)="onCardClick()">
+    <!-- <div class="card mb-4 shadow-sm"> -->
     <img
       class="card-img-top"
       [src]="individualShoppingItem.image"
@@ -16,7 +16,7 @@
         [routerLink]="['/view-item/' + individualShoppingItem.id]"
         style="text-align: center; text-decoration: none"
       >
-        {{ individualShoppingItem.title.substr(0, 60) + "..." }}
+        {{ individualShoppingItem.title.substr(0, 30) + "..." }}
       </a>
       <div>
         <p class="price">
@@ -47,7 +47,7 @@
       <div class="lower-part">
         <div class="buttons">
           <button
-            (click)="RoutingFunction(individualShoppingItem.id)"
+            (click)="RoutingFunction(individualShoppingItem.id, $event)"
             (mouseover)="IconChanger('eyeHover')"
             (mouseout)="IconChanger('eye')"
             class="btn btn-outline-primary left-btn"
@@ -59,7 +59,7 @@
           <button
             (mouseover)="IconChanger('cartHover')"
             (mouseout)="IconChanger('cart')"
-            (click)="addToCart()"
+            (click)="addToCart($event)"
             class="btn btn-outline-success right-btn"
           >
             <!-- Add to cart -->

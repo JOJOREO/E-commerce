@@ -38,16 +38,43 @@
   >
     <div class="row grid-display">
       <app-card
-        *ngFor="let shoppingItem of localItemsList"
+        *ngFor="let shoppingItem of displayList"
         [individualShoppingItem]="shoppingItem"
       ></app-card>
     </div>
+    <nav
+      aria-label="Page navigation example"
+      style="
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        padding-right: 2%;
+      "
+    >
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <!-- <span class="sr-only">Previous</span> -->
+          </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <!-- <span class="sr-only">Next</span> -->
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
   <ng-template #list_view>
     <div class="container-fluid">
       <div class="col-12 list-display">
         <app-list-view-card
-          *ngFor="let shoppingItem of localItemsList"
+          *ngFor="let shoppingItem of displayList"
           [individualShoppingItem]="shoppingItem"
         ></app-list-view-card>
       </div>

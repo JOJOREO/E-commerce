@@ -29,6 +29,7 @@ export class DropDownCardComponent implements OnInit {
   // constructor() {}
   constructor(private shopService: ShopService, private router: Router) {}
   ngOnInit(): void {
+    this.clicked = false;
     console.log(this.individualShoppingItem);
     this.cartItemQuantity = this.individualShoppingItem.quantity;
     console.log(this.cartItemQuantity);
@@ -52,18 +53,18 @@ export class DropDownCardComponent implements OnInit {
     // this.shopService.isAdding.next(this.localTotalCost + total);
 
     // console.log(this.itemDetails);
-    this.numbersArray = Array(
-      Math.floor(this.individualShoppingItem.rating.rate)
-    )
-      .fill(0)
-      .map((x, i) => i);
+    // this.numbersArray = Array(
+    //   Math.floor(this.individualShoppingItem.rating.rate)
+    // )
+    //   .fill(0)
+    //   .map((x, i) => i);
 
-    //for  empty stars
-    this.reverseNumbersArray = Array(
-      5 - Math.floor(this.individualShoppingItem.rating.rate)
-    )
-      .fill(0)
-      .map((x, i) => i);
+    // //for  empty stars
+    // this.reverseNumbersArray = Array(
+    //   5 - Math.floor(this.individualShoppingItem.rating.rate)
+    // )
+    //   .fill(0)
+    //   .map((x, i) => i);
   }
 
   getSingleItemLocal(itemId: any) {
@@ -121,7 +122,10 @@ export class DropDownCardComponent implements OnInit {
   };
 
   deleteCartItem = () => {
+    console.log('deleting');
     this.clicked = true;
+    console.log('clicked', this.clicked);
+    console.log('cartItemCost', this.cartItemCost);
     this.subtractItemCost(this.cartItemCost);
     this.shopService.isCounting.subscribe((res) => {
       console.log(res);

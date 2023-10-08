@@ -13,7 +13,15 @@ export class ShopService {
   checkoutTotal: any = 0;
   cart: any = [];
 
-  isLoading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  loadingState: any = false;
+
+  searchKeyword: any = '';
+  searchKeywordMonitoring: BehaviorSubject<string> =
+    new BehaviorSubject<string>(this.searchKeyword);
+
+  isLoading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    this.loadingState
+  );
   isCounting: BehaviorSubject<number> = new BehaviorSubject<number>(
     this.cartItemsCount
   );
@@ -26,8 +34,15 @@ export class ShopService {
   isMonitoringCart: BehaviorSubject<any> = new BehaviorSubject<any>(this.cart);
 
   constructor(private _http: HttpClient) {}
-  getItems = () => {
-    return this._http.get('https://fakestoreapi.com/products?limit=9');
+  getItems = (searchKeyword: any) => {
+    return this._http.get(
+      'https://fakestoreapi.com/products?limit=9&searchWord=' + searchKeyword
+    );
+  };
+  getAllItems = () => {
+    return this._http.get(
+      'https://fakestoreapi.com/products?limit=9&searchWord='
+    );
   };
   getCartItems = () => {
     return this._http.get<any>('https://fakestoreapi.com/carts/5');

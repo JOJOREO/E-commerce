@@ -21,8 +21,10 @@ export class HomePageComponent implements OnInit {
     });
 
     // turn off no data alert when data arrive
-    this.shopService.getItems().subscribe((res) => {
-      this.shopService.isLoading.next(false);
-    });
+
+    // this.shopService.isLoading.next(false);
+    // this.shopService.getItems('').subscribe((res) => {
+    //   this.shopService.isLoading.next(false);
+    // });
   }
 }
