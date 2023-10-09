@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ShopService } from 'src/services/shop.service';
 
@@ -9,6 +9,7 @@ import { ShopService } from 'src/services/shop.service';
 })
 export class DropDownCardComponent implements OnInit {
   @Input() individualShoppingItem: any;
+  @Output() delete: EventEmitter<string> = new EventEmitter();
   itemDetails: any;
   eyeIconSrc: any = 'assets/images/eye_icons/103796_view_icon_blue.png';
   cartIconSrc: any =
@@ -42,7 +43,7 @@ export class DropDownCardComponent implements OnInit {
         this.cartItemCost = this.itemDetails.price;
         // this.shopService.addToTotal(this.itemDetails.price);
 
-        this.shopService.isAdding.subscribe((res) => {
+        this.shopService.addingCheckoutTotalObserver.subscribe((res) => {
           this.localTotalCost = res;
           // console.log(this.localTotalCost);
         });
@@ -99,7 +100,7 @@ export class DropDownCardComponent implements OnInit {
     // console.log(this.shopService.checkoutTotal + total);
     // this.shopService.addToTotal(total);
 
-    this.shopService.isMonitoring.subscribe((res) => {
+    this.shopService.individualItemPriceObserver.subscribe((res) => {
       res[this.individualShoppingItem.productId] = this.cartItemCost;
       // console.log(res[this.individualShoppingItem.productId]);
     });
@@ -118,7 +119,9 @@ export class DropDownCardComponent implements OnInit {
     // console.log(this.shopService.checkoutTotal);
     // console.log(this.shopService.checkoutTotal + total);
     // this.shopService.addToTotal(total);
-    this.shopService.isAdding.next(this.localTotalCost - amount);
+    this.shopService.addingCheckoutTotalObserver.next(
+      this.localTotalCost - amount
+    );
   };
 
   deleteCartItem = () => {
@@ -127,12 +130,16 @@ export class DropDownCardComponent implements OnInit {
     console.log('clicked', this.clicked);
     console.log('cartItemCost', this.cartItemCost);
     this.subtractItemCost(this.cartItemCost);
-    this.shopService.isCounting.subscribe((res) => {
+    this.shopService.cartItemsCountObserver.subscribe((res) => {
       console.log(res);
     });
 
     // --this.shopService.cartItemsCount;
-    this.shopService.isCounting.next(--this.shopService.cartItemsCount);
+    this.shopService.cartItemsCountObserver.next(
+      --this.shopService.cartItemsCount
+    );
+    console.log(this.individualShoppingItem);
+    this.delete.emit(this.individualShoppingItem);
   };
 
   // addToCart = async () => {

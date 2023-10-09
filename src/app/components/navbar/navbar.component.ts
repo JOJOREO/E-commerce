@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
     private shopService: ShopService
   ) {
     // this.isCounting = this.shopService.isCounting;
-    this.shopService.isCounting.subscribe((res) => {
+    this.shopService.cartItemsCountObserver.subscribe((res) => {
       this.cartItemsCount = res;
       console.log(this.cartItemsCount);
     });
@@ -87,7 +87,7 @@ export class NavbarComponent implements OnInit {
       );
 
       // this.loginService.usernameMonitoring.next(this.username);
-      this.shopService.isCounting.next(2);
+      this.shopService.cartItemsCountObserver.next(2);
       // this.shopService.cartItemsCount = 2;
 
       //
@@ -142,7 +142,7 @@ export class NavbarComponent implements OnInit {
     this.userImage =
       'assets/images/403022_business man_male_user_avatar_profile_icon.png';
     localStorage.clear();
-    this.shopService.isCounting.next(0);
+    this.shopService.cartItemsCountObserver.next(0);
 
     this.loginService.userObject = {};
     this.loginService.username = 'Guest';
@@ -163,7 +163,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     // this.loginService.Login();
 
-    this.shopService.isCounting.subscribe((res) => {
+    this.shopService.cartItemsCountObserver.subscribe((res) => {
       this.cartItemsCount = res;
       console.log(this.cartItemsCount);
     });
@@ -188,7 +188,7 @@ export class NavbarComponent implements OnInit {
       this.userImage = splittedUserImage;
       this.loggedIn = true;
 
-      this.shopService.isCounting.next(2);
+      this.shopService.cartItemsCountObserver.next(2);
       this.shopService.cartItemsCount = 2;
       this.loginService.usernameMonitoring.next(splittedUserName);
       this.loginService.userImageMonitoring.next(splittedUserImage);
@@ -212,12 +212,12 @@ export class NavbarComponent implements OnInit {
     //   this.localCartItemsList = res;
     // });
 
-    this.shopService.isAdding.subscribe((res) => {
+    this.shopService.addingCheckoutTotalObserver.subscribe((res) => {
       console.log(res);
       this.checkoutTotal = res;
     });
 
-    this.shopService.isCounting.subscribe((res) => {
+    this.shopService.cartItemsCountObserver.subscribe((res) => {
       if (this.cartItemsCount == 0) {
         console.log(this.cartItemsCount);
         this.disableCart = true;
@@ -225,7 +225,7 @@ export class NavbarComponent implements OnInit {
         this.disableCart = false;
         this.shopService.getCartItems().subscribe((res) => {
           // this.localCartItemsList = res.products;
-          this.shopService.isMonitoringCart.next(res.products);
+          this.shopService.cartObserver.next(res.products);
           console.log(this.localCartItemsList);
           // this.shopService.isLoading.next(false);
         });

@@ -65,7 +65,9 @@ export class CardComponent implements OnInit {
       console.log(usernameResult);
 
       if (usernameResult != 'Guest') {
-        this.shopService.isCounting.next(++this.shopService.cartItemsCount);
+        this.shopService.cartItemsCountObserver.next(
+          ++this.shopService.cartItemsCount
+        );
         // alert('item added to Cart !! ');
         this.toastr.success('Added to Cart successfully !!', 'Item Added');
       }

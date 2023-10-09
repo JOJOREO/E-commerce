@@ -21,27 +21,27 @@ export class ShopService {
 
   itemsList: any = [];
 
-  searchKeywordMonitoring: BehaviorSubject<string> =
-    new BehaviorSubject<string>(this.searchKeyword);
+  searchKeywordObserver: BehaviorSubject<string> = new BehaviorSubject<string>(
+    this.searchKeyword
+  );
 
-  isLoading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+  loadingStateObserver: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     this.loadingState
   );
-  isCounting: BehaviorSubject<number> = new BehaviorSubject<number>(
+  cartItemsCountObserver: BehaviorSubject<number> = new BehaviorSubject<number>(
     this.cartItemsCount
   );
-  isAdding: BehaviorSubject<number> = new BehaviorSubject<number>(
-    this.checkoutTotal
-  );
-  isMonitoring: BehaviorSubject<number[]> = new BehaviorSubject<number[]>(
-    this.shoppingItemsPrices
-  );
-  isMonitoringCart: BehaviorSubject<any> = new BehaviorSubject<any>(this.cart);
+  addingCheckoutTotalObserver: BehaviorSubject<number> =
+    new BehaviorSubject<number>(this.checkoutTotal);
+  individualItemPriceObserver: BehaviorSubject<number[]> = new BehaviorSubject<
+    number[]
+  >(this.shoppingItemsPrices);
+  cartObserver: BehaviorSubject<any> = new BehaviorSubject<any>(this.cart);
 
-  pageIndexCounting: BehaviorSubject<number> = new BehaviorSubject<number>(
+  pageIndexObserver: BehaviorSubject<number> = new BehaviorSubject<number>(
     this.pageIndex
   );
-  itemsListMonitoring: BehaviorSubject<any> = new BehaviorSubject<any>(
+  itemsListObserver: BehaviorSubject<any> = new BehaviorSubject<any>(
     this.itemsList
   );
 
@@ -52,20 +52,6 @@ export class ShopService {
     );
   };
   getAllItems = (searchKeyword: any, PageIndex: any) => {
-    // let limit = 9;
-    // if (pageIndexSent == 1 || pageIndexSent == '') {
-    //   limit = 9;
-    // } else if (pageIndexSent === 2) {
-    //   limit = 18;
-    // } else if (pageIndexSent === 3) {
-    //   limit = 27;
-    // }
-    // return this._http.get(
-    //   'https://fakestoreapi.com/products?limit=' +
-    //     limit +
-    //     '&searchWord=' +
-    //     searchKeyword
-    // );
     return this._http.get(
       'https://fakestoreapi.com/products?&searchWord=' +
         searchKeyword +
@@ -94,24 +80,15 @@ export class ShopService {
     console.log(this.checkoutTotal);
     console.log(amount);
     console.log(this.checkoutTotal + amount);
-    this.isAdding.next(this.checkoutTotal + amount);
+    this.addingCheckoutTotalObserver.next(this.checkoutTotal + amount);
   };
 
   calculateTotal = () => {
     let total = 0;
     this.shoppingItemsPrices.map((price) => {
-      // console.log(price);
       total += price;
     });
     this.checkoutTotal = total;
-    this.isAdding.next(total);
-    // console.log(this.checkoutTotal);
+    this.addingCheckoutTotalObserver.next(total);
   };
-
-  // calculatePageItems = () => {
-  //   let length;
-  //   this.itemsListMonitoring.subscribe((res) => {
-  //     length = res.length;
-  //   });
-  // };
 }

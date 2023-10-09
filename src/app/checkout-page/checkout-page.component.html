@@ -47,14 +47,15 @@
       <div class="card">
         <app-drop-down-card
           *ngFor="let shoppingItem of localItemsList"
+          (delete)="deleteCard(shoppingItem.id)"
           [individualShoppingItem]="shoppingItem"
         ></app-drop-down-card>
-        <h3>
-          Total cost :
-          <span style="vertical-align: super; font-size: smaller">$</span>
-          {{ checkoutTotal }}
-        </h3>
       </div>
+      <h3>
+        Total cost :
+        <span style="vertical-align: super; font-size: smaller">$</span>
+        {{ checkoutTotal }}
+      </h3>
       <hr />
       <div class="confirm-btn">
         <button

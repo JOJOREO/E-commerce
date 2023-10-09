@@ -8,25 +8,16 @@ import { ShopService } from 'src/services/shop.service';
   styleUrls: ['./home-page.component.css'],
 })
 export class HomePageComponent implements OnInit {
-  // localLoadingState: any;
-  isLoading: Observable<boolean> | undefined;
   isLoadingBool: any;
   localPageIndex: any;
 
   constructor(private shopService: ShopService) {}
   ngOnInit(): void {
-    this.isLoading = this.shopService.isLoading;
-    this.shopService.isLoading.subscribe((res) => {
+    this.shopService.loadingStateObserver.subscribe((res) => {
       this.isLoadingBool = res;
-      this.isLoading = this.shopService.isLoading;
-      // console.log(this.isLoadingBool);
+
+      console.log(this.isLoadingBool);
+      alert(`isLoadingBool = ${this.isLoadingBool}`);
     });
-
-    // turn off no data alert when data arrive
-
-    // this.shopService.isLoading.next(false);
-    // this.shopService.getItems('').subscribe((res) => {
-    //   this.shopService.isLoading.next(false);
-    // });
   }
 }

@@ -18,6 +18,7 @@ export class CheckoutPageComponent implements OnInit {
   local_Objects_ItemsList: any;
   checkoutTotal: any;
   disablePurchase: any = false;
+  delete: any;
   constructor(
     private shopService: ShopService,
     private router: Router,
@@ -28,17 +29,19 @@ export class CheckoutPageComponent implements OnInit {
     this.address
   );
   ngOnInit(): void {
+    this.disablePurchase = false;
     if (this.checkoutTotal === 0) {
       this.disablePurchase = true;
     }
 
-    this.shopService.isAdding.subscribe((result) => {
+    this.shopService.addingCheckoutTotalObserver.subscribe((result) => {
       this.checkoutTotal = result;
       if (this.checkoutTotal === 0) {
         this.disablePurchase = true;
       }
     });
     this.shopService.getUserCheckoutDetails().subscribe((result) => {
+      this.disablePurchase = false;
       console.log(result);
       this.address =
         result.address.number +
@@ -50,17 +53,7 @@ export class CheckoutPageComponent implements OnInit {
       this.email = result.email;
 
       this.isMonitoringAddress.next(result.phone);
-
-      // console.log(this.address);
-      // console.log(this.email);
-      // console.log(this.phone);
     });
-
-    // console.log(this.address);
-    // console.log(this.email);
-    // console.log(this.phone);
-
-    //
 
     this.shopService.getCartItems().subscribe((res) => {
       this.localItemsList = res.products;
@@ -71,35 +64,27 @@ export class CheckoutPageComponent implements OnInit {
           console.log(res);
 
           this.local_Objects_ItemsList.push(res);
-          //  this.itemDetails = res;
-          //  console.log(this.itemDetails);
-          //  this.cartItemCost = this.itemDetails.price;
-          // this.shopService.addToTotal(this.itemDetails.price);
-
-          //  this.shopService.isAdding.subscribe((res) => {
-          //    this.localTotalCost = res;
-          //    // console.log(this.localTotalCost);
-          //  });
-
-          //  this.calculateItemCost(parseInt(this.cartItemQuantity));
         });
       });
-      // this.shopService.isLoading.next(false);
     });
-    // console.log(this.local_Objects_ItemsList);
-
-    //
   }
   onSubmit = (form: NgForm) => {
     this.toastr.success(
       'Items on delivery successfully !!',
       'Purchase Successful'
     );
-    this.shopService.isMonitoringCart.next([]);
-    this.shopService.isCounting.next(0);
-    this.shopService.isAdding.next(0);
+    this.shopService.cartObserver.next([]);
+    this.shopService.cartItemsCountObserver.next(0);
+    this.shopService.addingCheckoutTotalObserver.next(0);
     this.router.navigate(['']);
-    // alert('done');
   };
   purchaseDone = () => {};
+
+  deleteCard = (item: any) => {
+    console.log(item);
+    let index = this.localItemsList.indexOf(item);
+    console.log(index);
+    this.localItemsList.splice(index, 1);
+    console.log(this.localItemsList);
+  };
 }
