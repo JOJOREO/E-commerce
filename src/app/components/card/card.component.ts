@@ -16,7 +16,7 @@ export class CardComponent implements OnInit {
 
   numbersArray: any;
   reverseNumbersArray: any;
-  // constructor() {}
+
   constructor(
     private shopService: ShopService,
     private loginService: LoginService,
@@ -30,7 +30,6 @@ export class CardComponent implements OnInit {
       .fill(0)
       .map((x, i) => i);
 
-    //for  empty stars
     this.reverseNumbersArray = Array(
       5 - Math.floor(this.individualShoppingItem.rating.rate)
     )
@@ -62,20 +61,15 @@ export class CardComponent implements OnInit {
   }
   addToCart = async (event: any) => {
     this.loginService.usernameMonitoring.subscribe((usernameResult) => {
-      console.log(usernameResult);
-
       if (usernameResult != 'Guest') {
         this.shopService.cartItemsCountObserver.next(
           ++this.shopService.cartItemsCount
         );
-        // alert('item added to Cart !! ');
+
         this.toastr.success('Added to Cart successfully !!', 'Item Added');
       }
     });
     event.stopPropagation();
-    // this.shopService.isCounting.next(++this.shopService.cartItemsCount);
-    // // alert('item added to Cart !! ');
-    // this.toastr.success('item added to Cart successfully !!', 'Item Added');
   };
 
   onCardClick = () => {

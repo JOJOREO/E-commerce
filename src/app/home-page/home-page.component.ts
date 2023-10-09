@@ -15,9 +15,6 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.shopService.loadingStateObserver.subscribe((res) => {
       this.isLoadingBool = res;
-
-      console.log(this.isLoadingBool);
-      alert(`isLoadingBool = ${this.isLoadingBool}`);
     });
   }
 }

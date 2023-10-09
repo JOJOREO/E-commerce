@@ -1,9 +1,7 @@
 img {
   width: 30px;
-  /* height: 30px; */
 }
 nav {
-  /* align-items: center; */
   display: flex;
   flex-direction: row;
 }
@@ -11,20 +9,12 @@ nav {
 .container-fluid {
   display: flex;
   align-content: space-between;
-  /* border: 1px solid red; */
 }
 
 .navbar-collapse {
-  /* align-items: flex-end; */
   justify-content: end;
-  /* border: 1px solid red;/ */
-  /* width: 100%; */
-  /* padding: 0 !important; */
-  /* flex-direction: row-reverse; */
 }
 .navbar-collapse > * {
-  /* border: 1px solid red; */
-  /* margin: 0; */
 }
 
 .cart-counter {

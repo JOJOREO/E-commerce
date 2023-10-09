@@ -51,7 +51,6 @@ import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
     ToastrModule.forRoot({
       timeOut: 2000,
       positionClass: 'toast-bottom-right',
-      // preventDuplicates: true,
     }),
   ],
   providers: [ShopService, LoginService],

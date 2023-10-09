@@ -1,8 +1,6 @@
-<!-- <div class="col-12" [ngStyle]="{ display: clicked ? 'none' : '' }"> -->
 <div class="col-12">
   <div class="card mb-1 shadow-sm col-12">
     <img class="card-img-top" [src]="itemDetails.image" alt="Card image cap" />
-    <!-- <hr /> -->
     <div class="card-body">
       <hr />
       <div>
@@ -11,30 +9,9 @@
         </h6>
         <p class="price">
           <span style="vertical-align: super; font-size: smaller">$</span>
-          <!-- {{ itemDetails.price }} -->
           {{ cartItemCost }}
         </p>
-        <!-- <div class="rating">
-          <img
-            class="rating-star img-responsive"
-            *ngFor="let count of numbersArray; let i = index"
-            src="../../../assets/images/rating/3018558_level_rank_rating_score_standard_icon.png"
-            alt=""
-          />
-          <img
-            class="rating-star img-responsive"
-            *ngFor="let count of reverseNumbersArray"
-            src="../../../assets/images/rating/5875970_action_favorite_favourite_like_rating_icon.png"
-            alt=""
-          />
-          <span style="margin-left: 5px">{{
-            individualShoppingItem.rating.count
-          }}</span>
-        </div> -->
       </div>
-      <!-- <p class="description">
-        {{ individualShoppingItem.description | shorten }}
-      </p> -->
       <div class="lower-part">
         <div class="buttons">
           <input
@@ -45,16 +22,6 @@
             [value]="cartItemQuantity"
             (change)="calculateItemCost(itemCount.value)"
           />
-          <!-- <button
-            (click)="RoutingFunction(individualShoppingItem.id)"
-            (mouseover)="IconChanger('eyeHover')"
-            (mouseout)="IconChanger('eye')"
-            class="btn btn-outline-primary left-btn"
-          >
-            
-            <img class="rating-star" [src]="eyeIconSrc" alt="" />
-          </button> -->
-          <!-- </a> -->
           <button
             type="button"
             (mouseover)="IconChanger('deleteHover')"

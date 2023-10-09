@@ -1,6 +1,3 @@
-/* * {
-  border: 1px solid red;
-} */
 :host {
   height: 100%;
 }
@@ -17,11 +14,8 @@
   background-repeat: no-repeat;
 
   background-size: 110vw;
-  /* background-position: 120px 0; */
 }
-/* .jumbotron p {
-  font-weight: 500;
-} */
+
 .lead {
   width: 40vw;
   display: flex;
@@ -38,7 +32,6 @@ footer .container {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  /* display: inline; */
 }
 a {
   text-decoration: none;
@@ -47,38 +40,21 @@ a:hover {
   text-decoration: underline;
 }
 
-/* button > img {
-  width: 20px;
-  margin-right: 10px;
-} */
-
-/* .view-style-selector {
-  margin-left: 5px;
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
-} */
-
 @media screen and (max-width: 800px) {
   .jumbotron {
     height: fit-content;
     width: 100%;
-    /* overflow: auto; */
-    /* border: 1px solid red; */
+
     overflow: hidden;
-    /* padding: 10px; */
-    /* background-size: auto; */
   }
   .jumbotron-heading {
     padding-top: 0;
-    /* font-size: x-small; */
   }
   p {
     width: 100vw !important;
-    /* padding-top: 15px; */
+
     padding-right: 15px;
     padding-left: 15px;
-    /* font-size: x-small; */
   }
 }
 
@@ -86,15 +62,11 @@ a:hover {
   .jumbotron {
     height: fit-content;
     width: 100%;
-    /* overflow: auto; */
-    /* border: 1px solid red; */
+
     overflow: hidden;
-    /* padding: 10px; */
-    /* background-size: auto; */
   }
   .jumbotron-heading {
     padding-top: 0;
-    /* font-size: x-small; */
   }
   p {
     width: 100vw !important;
@@ -109,15 +81,13 @@ a:hover {
   .jumbotron {
     height: fit-content;
     width: 100%;
-    /* overflow: auto; */
-    /* border: 1px solid red; */
+
     overflow: hidden;
     padding: 10px;
     background-size: auto;
   }
   .jumbotron-heading {
     padding-top: 0;
-    /* font-size: x-small; */
   }
   button > img {
     width: 10px;
@@ -132,15 +102,13 @@ a:hover {
   .jumbotron {
     height: fit-content;
     width: 100%;
-    /* overflow: auto; */
-    /* border: 1px solid red; */
+
     overflow: hidden;
     padding: 10px;
     background-size: auto;
   }
   .jumbotron-heading {
     padding-top: 0;
-    /* font-size: x-small; */
   }
   button > img {
     width: 10px;

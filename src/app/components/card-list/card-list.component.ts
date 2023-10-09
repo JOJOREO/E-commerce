@@ -17,7 +17,6 @@ export class CardListComponent implements OnInit {
   localPageIndex: any;
 
   onInputChange = (searchKeywordValue: Event) => {
-    console.log((<HTMLInputElement>searchKeywordValue.target).value);
     this.localSearchKeyword = (<HTMLInputElement>(
       searchKeywordValue.target
     )).value;
@@ -26,7 +25,6 @@ export class CardListComponent implements OnInit {
     );
     this.shopService.searchKeywordObserver.subscribe((res) => {
       this.localSearchKeyword = res;
-      console.log(this.localSearchKeyword);
     });
   };
 
@@ -34,7 +32,6 @@ export class CardListComponent implements OnInit {
     this.shopService.pageIndexObserver.subscribe((res) => {
       this.shopService.loadingStateObserver.next(true);
       this.localPageIndex = res;
-      console.log(this.localPageIndex);
 
       this.shopService
         .getAllItems(this.localSearchKeyword, this.localPageIndex)
@@ -43,17 +40,11 @@ export class CardListComponent implements OnInit {
 
           this.localItemsList = res;
 
-          console.log(this.localSearchKeyword);
-
-          console.log(this.localPageIndex);
-
           let tempArray1: any = [];
           let tempArray2: any = [];
           let tempArray3: any = [];
 
           this.localItemsList.filter((item: any, index: any) => {
-            console.log(this.localPageIndex);
-
             if (index < 9 && this.localPageIndex === 1) {
               tempArray1.push(item);
             } else if (index > 9 && index < 18 && this.localPageIndex === 2) {
@@ -70,18 +61,15 @@ export class CardListComponent implements OnInit {
           if (this.localPageIndex == 3) {
             this.LimitedLocalItemList = tempArray3;
           }
-          console.log(this.LimitedLocalItemList);
 
           this.shopService.searchKeywordObserver.subscribe((res) => {
             this.localSearchKeyword = res;
-            console.log(this.localSearchKeyword);
 
             if (this.localSearchKeyword != '') {
               this.shopService
                 .getAllItems(this.localSearchKeyword, this.localPageIndex)
                 .subscribe();
 
-              console.log(this.localSearchKeyword);
               let filteredList: any = [];
               this.LimitedLocalItemList.map((item: any) => {
                 if (
@@ -100,9 +88,7 @@ export class CardListComponent implements OnInit {
       this.shopService.loadingStateObserver.next(false);
     });
 
-    this.shopService.pageIndexObserver.subscribe((res) => {
-      console.log('global page index', res);
-    });
+    this.shopService.pageIndexObserver.subscribe((res) => {});
   }
 
   onViewChange(viewType: string = 'grid') {

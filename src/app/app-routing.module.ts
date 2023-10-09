@@ -8,7 +8,6 @@ const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'view-item/:id', component: ViewItemPageComponent },
   { path: 'checkout/:total/:numberOfItems', component: CheckoutPageComponent },
-  // { path: 'view-item', component: ViewItemPageComponent },
 ];
 
 @NgModule({

@@ -42,7 +42,7 @@ export class CheckoutPageComponent implements OnInit {
     });
     this.shopService.getUserCheckoutDetails().subscribe((result) => {
       this.disablePurchase = false;
-      console.log(result);
+
       this.address =
         result.address.number +
         ' ' +
@@ -57,12 +57,9 @@ export class CheckoutPageComponent implements OnInit {
 
     this.shopService.getCartItems().subscribe((res) => {
       this.localItemsList = res.products;
-      console.log(this.localItemsList);
 
       this.localItemsList.map((item: any) => {
         this.shopService.getSingleItem(item.productId).subscribe((res) => {
-          console.log(res);
-
           this.local_Objects_ItemsList.push(res);
         });
       });
@@ -81,10 +78,8 @@ export class CheckoutPageComponent implements OnInit {
   purchaseDone = () => {};
 
   deleteCard = (item: any) => {
-    console.log(item);
     let index = this.localItemsList.indexOf(item);
-    console.log(index);
+
     this.localItemsList.splice(index, 1);
-    console.log(this.localItemsList);
   };
 }

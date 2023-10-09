@@ -1,13 +1,9 @@
-/* * {
-  border: 1px solid red;
-} */
-
 .container {
   border-radius: 15px;
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 15px;
-  /* height: 90%; */
+
   background-color: #6c757d33;
 }
 
@@ -19,22 +15,9 @@
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
-  /* display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center; */
-  /* overflow-y: hidden; */
-  /* border: 1px solid red; */
 }
 .card > * {
   width: 40%;
-  /* color: black; */
-  /* min-height: 500px;
-  max-height: 500px;
-  height: 500px; */
-  /* height: auto; */
-  /* border: 1px solid red; */
 }
 .form-group {
   display: flex;
@@ -48,18 +31,13 @@
   margin: 15px;
 }
 
-/* @media screen and (max-width: 800px) {
-  .grid-display {
-
-  }
-} */
 @media screen and (max-width: 576px) {
   .container {
     border-radius: 15px;
     margin-top: 15px;
     margin-bottom: 15px;
     padding: 15px;
-    /* height: 90%; */
+
     background-color: #6c757d33;
     font-size: small;
     width: 90%;
@@ -71,7 +49,7 @@
     margin-top: 15px;
     margin-bottom: 15px;
     padding: 15px;
-    /* height: 90%; */
+
     background-color: #6c757d33;
     font-size: small;
     width: 80%;
@@ -82,9 +60,6 @@
   }
 
   .card {
-    /* border: 1px solid red; */
-    /* width: 100%; */
-    /* max-width: 60vw; */
     height: 100%;
     height: 100%;
     align-items: center;
@@ -111,7 +86,7 @@
     margin-top: 15px;
     margin-bottom: 15px;
     padding: 15px;
-    /* height: 90%; */
+
     background-color: #6c757d33;
     font-size: small;
     width: 80%;
@@ -122,9 +97,6 @@
   }
 
   .card {
-    /* border: 1px solid red; */
-    /* width: 100%; */
-    /* max-width: 60vw; */
     height: 100%;
     height: 100%;
     align-items: center;

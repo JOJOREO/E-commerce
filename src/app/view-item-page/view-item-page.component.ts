@@ -23,14 +23,13 @@ export class ViewItemPageComponent implements OnInit {
       .getSingleItem(this.route.snapshot.params['id'])
       .subscribe((res) => {
         this.displayedItem = res;
-        console.log(this.displayedItem);
+
         this.starsNumbersArray = Array(
           Math.floor(this.displayedItem.rating.rate)
         )
           .fill(0)
           .map((x, i) => i);
 
-        //for  empty stars
         this.reverseStarsNumbersArray = Array(
           5 - Math.floor(this.displayedItem.rating.rate)
         )
@@ -38,31 +37,18 @@ export class ViewItemPageComponent implements OnInit {
           .map((x, i) => i);
       });
 
-    // this.displayedItem = this.shopService.singleShoppingItem;
-    // console.log(this.displayedItem);
     this.starsNumbersArray = Array(Math.floor(this.displayedItem.rating.rate))
       .fill(0)
       .map((x, i) => i);
 
-    //for  empty stars
     this.reverseStarsNumbersArray = Array(
       5 - Math.floor(this.displayedItem.rating.rate)
     )
       .fill(0)
       .map((x, i) => i);
   }
-  // getSingleItemLocal(itemId: any) {
-  //   this.shopService.getSingleItem(itemId);
-  // }
-  getSingleItemLocal(itemId: any) {
-    // this.shopService
-    //   .getSingleItem(this.route.snapshot.params['id'])
-    //   .subscribe((res) => {
-    //     this.displayedItem = res;
-    //     console.log(this.displayedItem);
-    //   });
-    // this.shopService.getSingleItem(itemId);
-  }
+
+  getSingleItemLocal(itemId: any) {}
 
   IconChanger(iconName: any) {
     if (iconName === 'eyeHover') {

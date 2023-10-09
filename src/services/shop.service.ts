@@ -77,9 +77,6 @@ export class ShopService {
   };
 
   addToTotal = (amount: any) => {
-    console.log(this.checkoutTotal);
-    console.log(amount);
-    console.log(this.checkoutTotal + amount);
     this.addingCheckoutTotalObserver.next(this.checkoutTotal + amount);
   };
 

@@ -27,45 +27,25 @@ export class DropDownCardComponent implements OnInit {
 
   clicked: any = false;
 
-  // constructor() {}
   constructor(private shopService: ShopService, private router: Router) {}
   ngOnInit(): void {
     this.clicked = false;
-    console.log(this.individualShoppingItem);
+
     this.cartItemQuantity = this.individualShoppingItem.quantity;
-    console.log(this.cartItemQuantity);
+
     this.shopService
       .getSingleItem(this.individualShoppingItem.productId)
       .subscribe((res) => {
-        console.log(res);
         this.itemDetails = res;
-        console.log(this.itemDetails);
+
         this.cartItemCost = this.itemDetails.price;
-        // this.shopService.addToTotal(this.itemDetails.price);
 
         this.shopService.addingCheckoutTotalObserver.subscribe((res) => {
           this.localTotalCost = res;
-          // console.log(this.localTotalCost);
         });
 
         this.calculateItemCost(parseInt(this.cartItemQuantity));
       });
-
-    // this.shopService.isAdding.next(this.localTotalCost + total);
-
-    // console.log(this.itemDetails);
-    // this.numbersArray = Array(
-    //   Math.floor(this.individualShoppingItem.rating.rate)
-    // )
-    //   .fill(0)
-    //   .map((x, i) => i);
-
-    // //for  empty stars
-    // this.reverseNumbersArray = Array(
-    //   5 - Math.floor(this.individualShoppingItem.rating.rate)
-    // )
-    //   .fill(0)
-    //   .map((x, i) => i);
   }
 
   getSingleItemLocal(itemId: any) {
@@ -91,60 +71,33 @@ export class DropDownCardComponent implements OnInit {
       alert('please enter a positive number !!');
       return;
     }
-    // console.log(this.itemDetails.price);
-    // console.log(parseInt(this.itemDetails.price));
+
     let total = parseInt(this.itemDetails.price) * count;
     this.cartItemCost = parseInt(this.itemDetails.price) * count;
-    // console.log(total);
-    // console.log(this.shopService.checkoutTotal);
-    // console.log(this.shopService.checkoutTotal + total);
-    // this.shopService.addToTotal(total);
 
     this.shopService.individualItemPriceObserver.subscribe((res) => {
       res[this.individualShoppingItem.productId] = this.cartItemCost;
-      // console.log(res[this.individualShoppingItem.productId]);
     });
 
-    // *****
     this.shopService.calculateTotal();
-    // this.shopService.isAdding.next(this.localTotalCost + total);
   };
 
   subtractItemCost = (amount: any) => {
-    // console.log(this.itemDetails.price);
-    // console.log(parseInt(this.itemDetails.price));
-    // let total = parseInt(this.itemDetails.price) * count;
-    // this.cartItemCost = parseInt(this.itemDetails.price) * count;
-    // console.log(total);
-    // console.log(this.shopService.checkoutTotal);
-    // console.log(this.shopService.checkoutTotal + total);
-    // this.shopService.addToTotal(total);
     this.shopService.addingCheckoutTotalObserver.next(
       this.localTotalCost - amount
     );
   };
 
   deleteCartItem = () => {
-    console.log('deleting');
     this.clicked = true;
-    console.log('clicked', this.clicked);
-    console.log('cartItemCost', this.cartItemCost);
-    this.subtractItemCost(this.cartItemCost);
-    this.shopService.cartItemsCountObserver.subscribe((res) => {
-      console.log(res);
-    });
 
-    // --this.shopService.cartItemsCount;
+    this.subtractItemCost(this.cartItemCost);
+    this.shopService.cartItemsCountObserver.subscribe((res) => {});
+
     this.shopService.cartItemsCountObserver.next(
       --this.shopService.cartItemsCount
     );
-    console.log(this.individualShoppingItem);
+
     this.delete.emit(this.individualShoppingItem);
   };
-
-  // addToCart = async () => {
-  //   this.shopService.isCounting.next(++this.shopService.cartItemsCount);
-
-  //   alert('item added to Cart !! ');
-  // };
 }

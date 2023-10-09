@@ -16,17 +16,13 @@ export class ListViewCardComponent {
   reverseNumbersArray: any;
   constructor(private shopService: ShopService, private router: Router) {}
   ngOnInit(): void {
-    console.log(this.individualShoppingItem);
-
     this.numbersArray = Array(
       Math.floor(this.individualShoppingItem.rating.rate)
-      // Math.floor(5)
     )
       .fill(0)
       .map((x, i) => i);
-    //for  empty stars
+
     this.reverseNumbersArray = Array(
-      // Math.floor(this.individualShoppingItem.rating.rate)
       5 - Math.floor(this.individualShoppingItem.rating.rate)
     )
       .fill(0)
