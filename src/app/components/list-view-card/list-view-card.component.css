@@ -2,13 +2,7 @@
   border: 1px solid red;
 } */
 .container-fluid {
-  /* border: 1px solid red; */
   margin: 0;
-  /* overflow: hidden; */
-  /* width: 100%; */
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* padding: 0; */
 }
 .row {
   padding: 15px 0;
@@ -121,3 +115,188 @@ nav {
 /* * {
   border: 1px solid red;
 } */
+@media screen and (max-width: 576px) {
+  .row {
+    padding: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+  .img-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 50%;
+    /* border: 1px solid grey; */
+  }
+  .card-img-top {
+    /* border: 1px solid red; */
+    padding-top: 10px;
+    /* width: 150px; */
+    width: 100%;
+    /* max-width: 150px; */
+    max-width: auto;
+    /* 
+  height: 200px;
+  max-height: 200px;
+  min-height: 200px; */
+
+    /* height: 100%; */
+    height: 50vh;
+    padding: 10px;
+
+    /* max-height: 200px;
+  min-height: 200px; */
+  }
+  .details-col {
+    width: 100%;
+    /* height: 75%; */
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .row {
+    padding: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+  .img-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 50%;
+    /* border: 1px solid grey; */
+  }
+  .card-img-top {
+    padding-top: 10px;
+    width: 100%;
+    max-width: auto;
+    height: 40vh;
+    padding: 10px;
+  }
+  .details-col {
+    width: 100%;
+    /* height: 75%; */
+  }
+  .card-body {
+    /* border: 1px solid red; */
+    /* display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%; */
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    font-size: xx-small;
+    /* width: fit-content; */
+  }
+  .view-details > *,
+  .price,
+  h4,
+  .description {
+    font-size: xx-small !important;
+  }
+  button {
+    /* width: 100%; */
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 10px; */
+  }
+  button > img {
+    width: 10px;
+  }
+  /* .price {
+    font-size: x-small !important;
+  }
+  h4
+  .description {
+    font-size: x-small !important;
+  } */
+}
+@media screen and (max-width: 240px) {
+  .row {
+    padding: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+  .img-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 50%;
+    /* border: 1px solid grey; */
+  }
+  .card-img-top {
+    padding-top: 10px;
+    width: 100%;
+    max-width: auto;
+    height: 40vh;
+    padding: 10px;
+  }
+  .details-col {
+    width: 100%;
+    /* height: 75%; */
+  }
+  .card-body {
+    /* border: 1px solid red; */
+    /* display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%; */
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    font-size: xx-small;
+    /* width: fit-content; */
+  }
+  .view-details > *,
+  .price,
+  h4,
+  .description {
+    font-size: xx-small !important;
+  }
+  button {
+    /* width: 100%; */
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 10px; */
+  }
+  button > img {
+    width: 10px;
+  }
+  /* .price {
+    font-size: x-small !important;
+  }
+  h4
+  .description {
+    font-size: x-small !important;
+  } */
+}
