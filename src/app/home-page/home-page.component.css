@@ -58,3 +58,73 @@ a:hover {
   flex-direction: row;
   gap: 5px;
 } */
+
+@media screen and (max-width: 800px) {
+  .jumbotron {
+    height: fit-content;
+    width: 100%;
+    /* overflow: auto; */
+    /* border: 1px solid red; */
+    overflow: hidden;
+    /* padding: 10px; */
+    /* background-size: auto; */
+  }
+  .jumbotron-heading {
+    padding-top: 0;
+    /* font-size: x-small; */
+  }
+  p {
+    width: 100vw !important;
+    /* padding-top: 15px; */
+    padding-right: 15px;
+    padding-left: 15px;
+    /* font-size: x-small; */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .jumbotron {
+    height: fit-content;
+    width: 100%;
+    /* overflow: auto; */
+    /* border: 1px solid red; */
+    overflow: hidden;
+    /* padding: 10px; */
+    /* background-size: auto; */
+  }
+  .jumbotron-heading {
+    padding-top: 0;
+    /* font-size: x-small; */
+  }
+  p {
+    width: 100vw !important;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    font-size: x-small;
+  }
+}
+
+@media screen and (max-width: 240px) {
+  .jumbotron {
+    height: fit-content;
+    width: 100%;
+    /* overflow: auto; */
+    /* border: 1px solid red; */
+    overflow: hidden;
+    padding: 10px;
+    background-size: auto;
+  }
+  .jumbotron-heading {
+    padding-top: 0;
+    /* font-size: x-small; */
+  }
+  button > img {
+    width: 10px;
+  }
+  p {
+    width: 100vw !important;
+    padding: 15px;
+    font-size: x-small;
+  }
+}

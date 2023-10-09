@@ -32,3 +32,12 @@ a:hover {
 {
     display: inline;
 } */
+@media screen and (max-width: 320px) {
+  .text-muted {
+    padding: 10px;
+    font-size: xx-small !important;
+  }
+  p {
+    font-size: xx-small !important;
+  }
+}

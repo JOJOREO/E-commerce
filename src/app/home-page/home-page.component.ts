@@ -11,13 +11,15 @@ export class HomePageComponent implements OnInit {
   // localLoadingState: any;
   isLoading: Observable<boolean> | undefined;
   isLoadingBool: any;
+  localPageIndex: any;
 
   constructor(private shopService: ShopService) {}
   ngOnInit(): void {
     this.isLoading = this.shopService.isLoading;
     this.shopService.isLoading.subscribe((res) => {
       this.isLoadingBool = res;
-      console.log(this.isLoadingBool);
+      this.isLoading = this.shopService.isLoading;
+      // console.log(this.isLoadingBool);
     });
 
     // turn off no data alert when data arrive
