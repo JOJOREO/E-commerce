@@ -16,6 +16,16 @@ export class CardListComponent implements OnInit {
   localSearchKeyword: any = '';
   localPageIndex: any;
 
+  debounce = (func: any, timeout = 500) => {
+    let timer: any;
+    return (...args: any) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        func.apply(this, args);
+      }, timeout);
+    };
+  };
+
   onInputChange = (searchKeywordValue: Event) => {
     this.localSearchKeyword = (<HTMLInputElement>(
       searchKeywordValue.target
@@ -28,7 +38,12 @@ export class CardListComponent implements OnInit {
     });
   };
 
+  debouncedInputChange = this.debounce((searchKeywordValue: Event) => {
+    this.onInputChange(searchKeywordValue);
+  });
+
   ngOnInit() {
+    // this.debounce()
     this.shopService.pageIndexObserver.subscribe((res) => {
       this.localPageIndex = res;
 

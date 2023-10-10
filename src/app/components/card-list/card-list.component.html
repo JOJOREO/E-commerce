@@ -1,29 +1,32 @@
 <div class="body-display">
   <div></div>
   <div class="view-style-selector grid-display-container">
-    <input
-      type="text"
-      class="form-control search-bar"
-      style="width: 50%"
-      (input)="onInputChange($event)"
-    />
-    <img
-      class="search-bar-img"
-      src="../../../assets/images/211818_search_icon.png"
-    />
+    <div class="search-div">
+      <input
+        type="text"
+        class="form-control search-bar"
+        (input)="debouncedInputChange($event)"
+      />
+      <img
+        class="search-bar-img"
+        src="../../../assets/images/211818_search_icon.png"
+      />
+    </div>
 
-    <button
-      class="btn btn-outline-secondary my-2"
-      (click)="onViewChange('grid')"
-    >
-      <img src="../../assets/images/352413_grid_on_icon.png" />Grid view
-    </button>
-    <button
-      class="btn btn-outline-secondary my-2"
-      (click)="onViewChange('List')"
-    >
-      <img src="../../assets/images/3671904_list_view_icon.png" />List view
-    </button>
+    <div class="view-buttons">
+      <button
+        class="btn btn-outline-secondary my-2"
+        (click)="onViewChange('grid')"
+      >
+        <img src="../../assets/images/352413_grid_on_icon.png" />Grid view
+      </button>
+      <button
+        class="btn btn-outline-secondary my-2"
+        (click)="onViewChange('List')"
+      >
+        <img src="../../assets/images/3671904_list_view_icon.png" />List view
+      </button>
+    </div>
   </div>
   <div
     class="container-fluid grid-display-container"
