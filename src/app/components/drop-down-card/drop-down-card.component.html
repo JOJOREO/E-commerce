@@ -1,6 +1,10 @@
 <div class="col-12">
   <div class="card mb-1 shadow-sm col-12">
-    <img class="card-img-top" [src]="itemDetails.image" alt="Card image cap" />
+    <img
+      class="card-img-top"
+      [src]="itemDetails.image || ''"
+      alt="Card image cap"
+    />
     <div class="card-body">
       <hr />
       <div>

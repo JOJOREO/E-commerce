@@ -30,12 +30,13 @@ export class CardListComponent implements OnInit {
 
   ngOnInit() {
     this.shopService.pageIndexObserver.subscribe((res) => {
-      this.shopService.loadingStateObserver.next(true);
       this.localPageIndex = res;
 
       this.shopService
         .getAllItems(this.localSearchKeyword, this.localPageIndex)
         .subscribe((res) => {
+          console.log(res);
+
           this.shopService.itemsListObserver.next(res);
 
           this.localItemsList = res;
@@ -55,11 +56,23 @@ export class CardListComponent implements OnInit {
           });
           if (this.localPageIndex == 1) {
             this.LimitedLocalItemList = tempArray1;
+            this.shopService.getAllItems(
+              this.localSearchKeyword,
+              this.localPageIndex
+            );
           } else if (this.localPageIndex == 2) {
             this.LimitedLocalItemList = tempArray2;
+            this.shopService.getAllItems(
+              this.localSearchKeyword,
+              this.localPageIndex
+            );
           }
           if (this.localPageIndex == 3) {
             this.LimitedLocalItemList = tempArray3;
+            this.shopService.getAllItems(
+              this.localSearchKeyword,
+              this.localPageIndex
+            );
           }
 
           this.shopService.searchKeywordObserver.subscribe((res) => {
@@ -85,8 +98,8 @@ export class CardListComponent implements OnInit {
             }
           });
         });
-      this.shopService.loadingStateObserver.next(false);
     });
+    this.shopService.loadingStateObserver.next(true);
 
     this.shopService.pageIndexObserver.subscribe((res) => {});
   }

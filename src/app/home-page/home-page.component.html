@@ -11,10 +11,11 @@
     site.
   </p>
 </div>
-<div *ngIf="isLoadingBool; else loadedPage">
-  <app-loading-page></app-loading-page>
+<!-- <div *ngIf="!isLoadingBool; else loadedPage"> -->
+<div>
+  <app-card-list></app-card-list>
 </div>
 
 <ng-template #loadedPage>
-  <app-card-list></app-card-list>
+  <app-loading-page></app-loading-page>
 </ng-template>

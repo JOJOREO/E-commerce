@@ -8,12 +8,11 @@ export class ShopService {
   shoppingItemsPrices = [];
   cartItemsCount: any = 0;
   singleShoppingItem: any;
-  globalLoadingStatus: any = true;
 
   checkoutTotal: any = 0;
   cart: any = [];
 
-  loadingState: any = false;
+  loadingState: any = true;
 
   searchKeyword: any = '';
 
@@ -56,7 +55,7 @@ export class ShopService {
       'https://fakestoreapi.com/products?&searchWord=' +
         searchKeyword +
         '&pageNumber=' +
-        this.pageIndex
+        PageIndex
     );
   };
   getCartItems = () => {
